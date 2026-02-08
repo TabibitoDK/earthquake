@@ -8,7 +8,7 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCh
 np.random.seed(42)
 tf.random.set_seed(42)
 
-PROJECT_PATH = "/content/project"
+PROJECT_PATH = "/content/earthquake"
 DATASET_FOLDER = os.path.join(PROJECT_PATH, "dataset_v2")
 MODEL_FOLDER = os.path.join(PROJECT_PATH, "models_v2")
 os.makedirs(MODEL_FOLDER, exist_ok=True)

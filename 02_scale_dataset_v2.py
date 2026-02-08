@@ -3,7 +3,7 @@ import numpy as np
 import pickle
 from sklearn.preprocessing import MinMaxScaler
 
-PROJECT_PATH = "/content/project"
+PROJECT_PATH = "/content/earthquake"
 DATASET_FOLDER = os.path.join(PROJECT_PATH, "dataset_v2")
 
 X_path = os.path.join(DATASET_FOLDER, "X.npy")

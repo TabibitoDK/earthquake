@@ -4,7 +4,7 @@ import numpy as np
 # =========================================================
 # CONFIG
 # =========================================================
-PROJECT_PATH = "/content/project"
+PROJECT_PATH = "/content/earthquake"
 EQ_FOLDER = os.path.join(PROJECT_PATH, "earthquake_data")
 OUT_FOLDER = os.path.join(PROJECT_PATH, "dataset_v2")
 os.makedirs(OUT_FOLDER, exist_ok=True)

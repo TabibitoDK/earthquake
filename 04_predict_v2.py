@@ -3,9 +3,10 @@ import numpy as np
 import pickle
 import tensorflow as tf
 
-PROJECT_PATH = "/content/project"
+PROJECT_PATH = "/content/earthquake"
 DATASET_FOLDER = os.path.join(PROJECT_PATH, "dataset_v2")
 MODEL_FOLDER = os.path.join(PROJECT_PATH, "models_v2")
+EQ_FOLDER = os.path.join(PROJECT_PATH, "earthquake_data")
 
 with open(os.path.join(DATASET_FOLDER, "x_scaler.pkl"), "rb") as f:
     x_scaler = pickle.load(f)
@@ -51,7 +52,14 @@ alpha = float(input("Enter alpha value (0.05, 0.06, 0.065): ") or "0.05")
 if floors not in [5, 10, 20, 30]:
     raise ValueError("floors must be 5, 10, 20, or 30")
 
-eq_path = input("Enter earthquake file path: ").strip()
+eq_input = input("Enter earthquake file name or path (inside earthquake_data): ").strip()
+eq_path = eq_input
+if not eq_path:
+    raise FileNotFoundError("Earthquake file name/path is required")
+if not os.path.isabs(eq_path):
+    candidate = os.path.join(EQ_FOLDER, eq_path)
+    if os.path.exists(candidate):
+        eq_path = candidate
 if not os.path.exists(eq_path):
     raise FileNotFoundError("Earthquake file not found")
 
